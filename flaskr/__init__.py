@@ -22,6 +22,9 @@ def create_app(test_config=None):
 		os.makedirs(app.instance_path)
 	except OSError:
 		pass
+
+	from . import db
+	db.int_app(app)
 	
 	#a simple page to say hello
 	@app.route('/hello/')
